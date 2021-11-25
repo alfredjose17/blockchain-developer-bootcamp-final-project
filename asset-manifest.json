@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ace-token-farm/static/css/main.7e180fc2.chunk.css",
+    "main.js": "/ace-token-farm/static/js/main.bc83992c.chunk.js",
+    "main.js.map": "/ace-token-farm/static/js/main.bc83992c.chunk.js.map",
+    "runtime-main.js": "/ace-token-farm/static/js/runtime-main.23cdf090.js",
+    "runtime-main.js.map": "/ace-token-farm/static/js/runtime-main.23cdf090.js.map",
+    "static/js/2.64a448cd.chunk.js": "/ace-token-farm/static/js/2.64a448cd.chunk.js",
+    "static/js/2.64a448cd.chunk.js.map": "/ace-token-farm/static/js/2.64a448cd.chunk.js.map",
+    "static/js/3.1aaf9254.chunk.js": "/ace-token-farm/static/js/3.1aaf9254.chunk.js",
+    "static/js/3.1aaf9254.chunk.js.map": "/ace-token-farm/static/js/3.1aaf9254.chunk.js.map",
+    "index.html": "/ace-token-farm/index.html",
+    "static/css/main.7e180fc2.chunk.css.map": "/ace-token-farm/static/css/main.7e180fc2.chunk.css.map",
+    "static/js/2.64a448cd.chunk.js.LICENSE.txt": "/ace-token-farm/static/js/2.64a448cd.chunk.js.LICENSE.txt",
+    "static/media/token-logo.279da100.png": "/ace-token-farm/static/media/token-logo.279da100.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.23cdf090.js",
+    "static/js/2.64a448cd.chunk.js",
+    "static/css/main.7e180fc2.chunk.css",
+    "static/js/main.bc83992c.chunk.js"
+  ]
+}
