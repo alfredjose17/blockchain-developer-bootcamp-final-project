@@ -73,32 +73,44 @@ class App extends Component {
 
 
   // Stake ETH into the Contract
-  stakeTokens = (amount) => {
+  stakeTokens = async(amount) => {
     if( amount <= 0 ) {
-      alert("Please enter a valid Amount!");
+      alert("Please enter a valid amount!");
     }
     else {
-      this.setState({ loading: true })
-      this.state.tokenFarm.methods.recieveEther().send({ from: window.ethereum.selectedAddress, value: amount}).on('transactionHash', (hash) => {
-        this.setState({ loading: false })
-      })
+      await this.state.tokenFarm.methods.recieveEther().send({ from: window.ethereum.selectedAddress, value: amount});
       
-      // // Sending Transaction Confirmation
-      // let status = null;
-      // while(status == null) {
-      //   status = web3.eth.getTransactionReceipt(hash [, callback]);
-      // }
+      // Checking transaction status
+      if(window.web3.eth.getTransactionReceipt("{hash}") == null) {
+        alert("Transaction failed! Please check your transaction and try again.");
+      }
+      else {
+        alert("Transaction confirmed successfully!");
+        window.location.reload()
+      }
 
     }
   }
 
 
   // Unstake ETH to user wallet
-  unstakeTokens = () => {
-    this.setState({ loading: true })
-    this.state.tokenFarm.methods.sendEther().send({ from: window.ethereum.selectedAddress }).on('transactionHash', (hash) => {
-      this.setState({ loading: false })
-    })
+  unstakeTokens = async() => {
+    if(this.stakingBalance > 0) {
+      await this.state.tokenFarm.methods.sendEther().send({ from: window.ethereum.selectedAddress })
+
+      // Checking transaction status
+      if(window.web3.eth.getTransactionReceipt("{hash}") == null) {
+        alert("Transaction failed! Please check your transaction and try again.");
+      }
+      else {
+        alert("Transaction confirmed successfully!");
+        window.location.reload()
+      }
+    }
+    else {
+      alert("Not enough balance to unstake!");
+    }
+
   }
 
 
@@ -118,13 +130,31 @@ class App extends Component {
   render() {
     let content
     if(this.state.loading) {
-      content = 
-      <div>
-        <p id="loader" className="h4 text-center text-bold" style={{paddingTop: '100px'}}>Loading data...</p>
-        <p id="loader" className="h5 text-center text-bold text-danger" style={{paddingTop: '15px'}}>Please reload or check connection to Ropsten network</p>
-        <p id="loader" className="h5 text-center text-bold text-danger">if Metamask doesn't work!</p>
-      </div>
-    } else {
+      if(window.ethereum.selectedAddress) {
+        content = 
+        <div className="text-center">
+          <p id="loader" className="h5 text-bold" style={{paddingTop: '100px'}}>Loading data...</p>
+        </div>
+      }
+      else {
+        content = 
+        <div className="text-center">
+          <p id="loader" className="h5 text-bold text-secondary" style={{paddingTop: '100px'}}>Looking for some ACE Tokens?</p>
+          <p id="loader" className="h5 text-bold" style={{paddingTop: '15px', paddingBottom: '15px'}}>Connect Ropsten wallet to continue.</p>
+          <button
+            type="submit"
+            className="btn btn-success"
+            style={{fontWeight: 'bold', fontSize: '15px'}}
+            onClick={async(event) => {
+              await window.ethereum.request({ method: 'eth_requestAccounts' });
+              window.location.reload();
+            }}>
+              Connect
+          </button>
+        </div>
+      }
+    } 
+    else {
       content = <Main
         etherBalance={this.state.etherBalance}
         aceTokenBalance={this.state.aceTokenBalance}

@@ -61,8 +61,7 @@ class Main extends Component {
               </button>
           </div>
           <div>
-            <p className="h6 text-info" style={{textAlign: 'center'}}>NB: Reload the page after transaction is confirmed </p>
-            <p className="h6 text-danger" style={{textAlign: 'center', paddingTop: '5px'}}>Please connect to the Ropsten network! </p>
+            <p className="h6 text-danger" style={{textAlign: 'center'}}>Connect to the Ropsten network! </p>
           </div>
           <br/>
         </div>
