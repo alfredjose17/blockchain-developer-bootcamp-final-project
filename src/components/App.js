@@ -95,7 +95,7 @@ class App extends Component {
 
   // Unstake ETH to user wallet
   unstakeTokens = async() => {
-    if(this.stakingBalance > 0) {
+    if(this.state.stakingBalance > 0) {
       await this.state.tokenFarm.methods.sendEther().send({ from: window.ethereum.selectedAddress })
 
       // Checking transaction status
