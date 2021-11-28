@@ -23,6 +23,11 @@ contract('TokenFarm', ([owner]) => {
   })
 
   describe('Ace Token deployment', async () => {
+    it('should assert true', async () => {
+      await AceToken.deployed()
+      assert.isTrue(true)
+    })
+
     it('has a name', async () => {
       const name = await aceToken.name()
       assert.equal(name, 'Ace Token')
@@ -30,6 +35,11 @@ contract('TokenFarm', ([owner]) => {
   })
 
   describe('Token Farm deployment', async () => {
+    it('should assert true', async () => {
+      await TokenFarm.deployed()
+      assert.isTrue(true)
+    })
+
     it('has a name', async () => {
       const name = await tokenFarm.name()
       assert.equal(name, 'Dapp Token Farm')
@@ -46,7 +56,7 @@ contract('TokenFarm', ([owner]) => {
       await tokenFarm.issueTokens({ from: owner })
     })
 
-    it('reject issue token request from other addresses', async () => {
+    it('reject issue token request from non-owners', async () => {
       await tokenFarm.issueTokens({ from: "0x357A3fEEd7bB112f63227A5b5A2CA42246566919" }).should.be.rejected;
     })
   })
