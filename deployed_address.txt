@@ -1,0 +1,3 @@
+TokenFarm Address: 0x8043E5721237a2D2D7A0cdc2B478037191851D08
+AceToken Address: 0xE1f08fe97B7b8Ae7277C2a09a79EDdAA9484b621        
+Network: Ropsten

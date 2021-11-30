@@ -10,7 +10,7 @@ function tokens(n) {
   return web3.utils.toWei(n, 'ether');
 }
 
-contract('TokenFarm', ([owner]) => {
+contract('TokenFarm', ([owner, investor]) => {
   let aceToken, tokenFarm;
 
   before(async () => {
@@ -57,7 +57,7 @@ contract('TokenFarm', ([owner]) => {
     })
 
     it('reject issue token request from non-owners', async () => {
-      await tokenFarm.issueTokens({ from: "0x357A3fEEd7bB112f63227A5b5A2CA42246566919" }).should.be.rejected;
+      await tokenFarm.issueTokens({ from: investor }).should.be.rejected;
     })
   })
 
