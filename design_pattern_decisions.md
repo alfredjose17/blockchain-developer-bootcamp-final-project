@@ -6,7 +6,7 @@
 
 ## Inheritance and Interfaces
 
-- AceToken contract inherits the OpenZeppelin `Ownable`, `Pausable`, `ERC20Burnable` and `ERC20` contract.
+- AceToken contract inherits the OpenZeppelin `Ownable`, `Pausable`, `ERC20Burnable` and `ERC20` contracts.
 
 ## Inter-Contract Execution
 
