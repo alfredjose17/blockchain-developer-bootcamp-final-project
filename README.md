@@ -4,6 +4,8 @@
 
 https://alfvj17.github.io/blockchain-developer-bootcamp-final-project/
 
+NB: Please connect to the Ropsten Network.
+
 ## How to run this project locally:
 
 ### Prerequisites
