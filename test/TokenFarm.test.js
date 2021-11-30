@@ -22,6 +22,7 @@ contract('TokenFarm', ([owner, investor]) => {
     await aceToken.transfer(tokenFarm.address, tokens('1000000'))
   })
 
+  // Testing AceToken Contract Deployment
   describe('Ace Token deployment', async () => {
     it('should assert true', async () => {
       await AceToken.deployed()
@@ -34,6 +35,7 @@ contract('TokenFarm', ([owner, investor]) => {
     })
   })
 
+  // Testing TokenFarm Contract Deployment
   describe('Token Farm deployment', async () => {
     it('should assert true', async () => {
       await TokenFarm.deployed()
@@ -51,7 +53,16 @@ contract('TokenFarm', ([owner, investor]) => {
     })
   })
 
+  // Testing the TokenFarm contract functionality
   describe('Farming Tokens', async () => {
+    it('stake ETH into the contract', async () => {
+      await tokenFarm.recieveEther({ from: investor , value: tokens('1')})
+    })
+
+    it('unstake ETH from the contract', async () => {
+      await tokenFarm.sendEther({ from: investor })
+    })
+
     it('owner rewards investors for staking ETH tokens', async () => {
       await tokenFarm.issueTokens({ from: owner })
     })
