@@ -25,6 +25,7 @@ https://alfvj17.github.io/blockchain-developer-bootcamp-final-project/
 ### Frontend
 
 - `npm install`
+- `npm i web3`
 - `npm start`
 - Open `http://localhost:3000`
 
