@@ -2,7 +2,7 @@
 
 ## Deployed version url:
 
-[https://alfvj17.github.io/blockchain-developer-bootcamp-final-project/](https://alfredjose17.github.io/blockchain-developer-bootcamp-final-project/)
+[https://alfredjose17.github.io/blockchain-developer-bootcamp-final-project/](https://alfredjose17.github.io/blockchain-developer-bootcamp-final-project/)
 
 NB: Please connect to the Ropsten Network.
 
